@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.display {
+  margin-left: 30%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar button {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar button {
+    text-align: center;
+    float: none;
+  }
+}
+
+.collapse-button {
+  display: block;
+  width: 100%;
+}
+
+.collapse-content.collapsed {
+  display: none;
+}
+
+.collapsed-content.expanded {
+  display: block;
+}
+
+.modal-pop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1010;
+  background-color: white;
+}
+.modal-overlay {
+  z-index: 1000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.75;
+}
