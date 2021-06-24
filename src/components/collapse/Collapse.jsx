@@ -23,7 +23,7 @@ const Collapse = ({loadTemplate}) => {
         className="collapse-button"
         onClick={() => onClickGetTemplates()}
       > Templates
-      {isCollapsed ?  <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-down.png" alt="expand"/> : <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-up.png" alt="collapse"/> }
+      {isCollapsed ?  <img src="https://img.icons8.com/ios-glyphs/15/000000/chevron-down.png" alt="expand"/> : <img src="https://img.icons8.com/ios-glyphs/15/000000/chevron-up.png" alt="collapse"/> }
       </button>
       <div
         className={`collapse-content ${isCollapsed ? 'collapsed' : 'expanded'}`}
@@ -31,7 +31,7 @@ const Collapse = ({loadTemplate}) => {
       >
         {!isCollapsed ? data.map(template =>(      
                <div key={template.id} onClick={() => loadTemplate(template)}>
-                  <h2>{template.name} by {template.author}</h2>
+                  <span className="template-list">{template.name} by {template.author}</span>
                </div>
       )) : <div></div>}
       </div>

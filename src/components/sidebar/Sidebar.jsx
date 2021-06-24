@@ -12,7 +12,9 @@ const Sidebar = ({
   setFirstColor,
   secondColor,
   setSecondColor,
-  loadTemplate
+  loadTemplate,
+  style,
+  direction
 }) => {
   const { toggle, visible } = useModal()
 
@@ -22,65 +24,65 @@ const Sidebar = ({
       <Collapse loadTemplate={loadTemplate} />
       <h2>Generate template</h2>
       <div>
-        <span>Style</span>
-        <button name='linear-gradient' onClick={onClickStyle}>
+        <span className="label">Style</span>
+        <button name='linear-gradient' onClick={onClickStyle} className={(style === "linear-gradient") ? "selected" : ""}>
           Linear
         </button>
-        <button name='radial-gradient' onClick={onClickStyle}>
+        <button name='radial-gradient' onClick={onClickStyle}className={(style === "radial-gradient") ? "selected" : ""}>
           Radial
         </button>
       </div>
       <div>
-        <span>Direction</span>
-        <button type='button' onClick={() => onClickDirection('top-left')}>
+        <span className="label">Direction</span>
+        <button type='button' onClick={() => onClickDirection('top-left')} className={(direction === 'top-left') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/fluent-systems-filled/10/000000/up-left-arrow.png'
             alt='top left'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('top')}>
+        <button type='button' onClick={() => onClickDirection('top')} className={(direction === 'top') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/fluent-systems-filled/10/000000/long-arrow-up.png'
             alt='center top '
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('top-right')}>
+        <button type='button' onClick={() => onClickDirection('top-right')} className={(direction === 'top-right') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/fluent-systems-filled/10/000000/up-right-arrow.png'
             alt='top right'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('left')}>
+        <button type='button' onClick={() => onClickDirection('left')} className={(direction === 'left') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/fluent-systems-filled/10/000000/long-arrow-left.png'
             alt='left'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('center')}>
+        <button type='button' onClick={() => onClickDirection('center')} className={(direction === 'center') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/material-rounded/10/000000/circled.png'
             alt='center'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('right')}>
+        <button type='button' onClick={() => onClickDirection('right')} className={(direction === 'right') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/ios-glyphs/10/000000/long-arrow-right.png'
             alt='right'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('bottom-left')}>
+        <button type='button' onClick={() => onClickDirection('bottom-left')} className={(direction === 'bottom-left') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/fluent-systems-filled/10/000000/down-left-arrow.png'
             alt='bottom left'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('bottom')}>
+        <button type='button' onClick={() => onClickDirection('bottom')} className={(direction === 'bottom') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/windows/10/000000/long-arrow-down.png'
             alt='bottom'
           />
         </button>
-        <button type='button' onClick={() => onClickDirection('bottom-right')}>
+        <button type='button' onClick={() => onClickDirection('bottom-right')} className={(direction === 'bottom-right') ? "selected" : ""}>
           <img
             src='https://img.icons8.com/ios-filled/10/000000/down-right-arrow.png'
             alt='down right'
@@ -88,7 +90,7 @@ const Sidebar = ({
         </button>
       </div>
       <div>
-        <span>Colors</span>
+        <span className="label">Colors</span>
         <input
           type='color'
           value={firstColor}

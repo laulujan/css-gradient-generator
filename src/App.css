@@ -1,50 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .sidebar {
   margin: 0;
   padding: 0;
   width: 30%;
-  background-color: #f1f1f1;
+  background-color: #fffffff8;
   position: fixed;
   height: 100%;
   overflow: auto;
+  box-shadow: 1px 2px 2px 2px rgb(165, 164, 164);
 }
 
 .display {
@@ -69,11 +39,38 @@
     text-align: center;
     float: none;
   }
+  .display{
+    margin-left: 0;
+  }
+}
+
+button{
+  background-color: #fffffff8;
+  border: solid 2px rgba(146, 146, 146, 0.952);
+  border-radius: 20px;
+  font-size: 1em;
+  margin: 5px;
+  padding: 5px;
+}
+button:hover{
+  border-color: darkcyan;
+}
+.selected{
+  background-color: rgb(201, 200, 200);
+}
+
+input{
+  margin: 5px;
 }
 
 .collapse-button {
   display: block;
   width: 100%;
+  background-color: #fffffff8;
+  font-size: 1.5em;
+  border: none;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .collapse-content.collapsed {
@@ -83,6 +80,19 @@
 .collapsed-content.expanded {
   display: block;
 }
+.template-list{
+  text-transform: capitalize;
+}
+.template-list:hover{
+  color: darkcyan;
+}
+
+.label{
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  margin: 10px;
+}
 
 .modal-pop {
   position: fixed;
@@ -91,6 +101,9 @@
   transform: translate(-50%, -50%);
   z-index: 1010;
   background-color: white;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
 }
 .modal-overlay {
   z-index: 1000;
@@ -103,3 +116,38 @@
   background-color: #000;
   opacity: 0.75;
 }
+
+form {
+  margin-top: 3em;
+  padding: 5px;
+}
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+form input[type=text] {
+  width: auto;
+  height: 2em;
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
+#copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.custom{
+  background-color: #fffffff8;
+  border: solid 2px rgba(146, 146, 146, 0.952);
+  border-radius: 20px;
+  font-size: 1em;
+  margin: 5px;
+  padding: 5px;
+}
+ .custom:hover{
+   border-color: darkcyan;
+ }

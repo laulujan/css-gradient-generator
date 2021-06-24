@@ -20,10 +20,8 @@ const GradientDisplay = ({style, direction, firstColor, secondColor, name, autho
     return (
         <div>
             <div className="display" style={stylez}>
-                <div>{name}</div>
-                <div>{author}</div>
                 <CopyToClipboard text={'background: ' + stylez.background} onCopy={onCopyText}>
-                    <button>
+                    <button id="copy">
                     <span>{isCopied ? "Copied!" : <img src="https://img.icons8.com/ios/20/000000/copy-2.png" alt="copy to clipboard"/>}</span>
                     </button>
                 </CopyToClipboard>

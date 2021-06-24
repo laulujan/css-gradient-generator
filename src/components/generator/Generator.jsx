@@ -6,11 +6,12 @@ import createTemplate from '../../services/createTemplate';
 
 const Generator = () => {
   const [style, setStyle] = useState('linear-gradient');
-  const [direction, setDirection] = useState('to right bottom');
+  const [direction, setDirection] = useState('top-left');
   const [firstColor, setFirstColor] = useState('#91CA62');
   const [secondColor, setSecondColor] = useState('#128061');
   const [name, setName] = useState("");
-  const [author, setAuthor] = useState("")
+  const [author, setAuthor] = useState("");
+  
 
   const options = {
     'top-left': {
@@ -52,29 +53,52 @@ const Generator = () => {
   }
   const onClickStyle = e => {
     e.preventDefault()
+
     setStyle(e.target.getAttribute('name'))
+ 
+
   }
 
   const onClickDirection = e => {
+    setDirection(e)    
+  }
+
+  const transformDirection = (direction) => {
     if (style === 'linear-gradient') {
-      setDirection(options[e].linear)
+      return options[direction].linear
     }
     if (style === 'radial-gradient') {
-      setDirection(options[e].radial)
+      return options[direction].radial
+    }
+  }
+
+  const detransformDirection = (direction, style) => {
+    for (const index in options) {
+      if (style === 'linear-gradient') {
+        if (options[index].linear === direction) {
+          return index;
+        }
+      }
+      if (style === 'radial-gradient') {
+        if (options[index].radial === direction) {
+          return index;
+        }
+      }
     }
   }
   const onChangeColor = (e, func) => {
     func(e.target.value)
   }
    const loadTemplate = (template) => {
+    let direction = detransformDirection(template.direction, template.gradient_type)
     setStyle(template.gradient_type);
-    setDirection(template.direction);
+    setDirection(direction);
     setFirstColor(template.first_color);
     setSecondColor(template.second_color)
    }
 
   const saveTemplate = async (name, author) => {
-    const isStored = await createTemplate(name, author, style, direction, firstColor, secondColor)
+    const isStored = await createTemplate(name, author, style, transformDirection(direction), firstColor, secondColor)
     if(isStored){
       setName(name)
       setAuthor(author)
@@ -94,10 +118,12 @@ const Generator = () => {
         secondColor={secondColor}
         setSecondColor={setSecondColor}
         loadTemplate={loadTemplate}
+        style={style}
+        direction={direction}
       />
       <GradientDisplay 
         style={style}
-        direction = {direction}
+        direction = {transformDirection(direction)}
         firstColor={firstColor}
         secondColor={secondColor}
         name={name}
